@@ -30,3 +30,16 @@ export function max<T>(objects: T[], valueFunction: (object: T) => number) {
     objects[0]
   );
 }
+
+export function toCountMap<T>(values: T[]): Map<T, number> {
+  const map = new Map();
+  for (let value of values) {
+    const count = map.get(value);
+    if (count) {
+      map.set(value, count + 1);
+    } else {
+      map.set(value, 1);
+    }
+  }
+  return map;
+}
