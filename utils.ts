@@ -43,3 +43,41 @@ export function toCountMap<T>(values: T[]): Map<T, number> {
   }
   return map;
 }
+
+export class ExtendedSet<T> extends Set<T> {
+
+  constructor(iterable?: Iterable<T>) {
+    super(iterable)
+  }
+
+  intersect(iterable?: Iterable<T>) {
+    const newSet = new ExtendedSet<T>();
+    for (let value of iterable) {
+      if (this.has(value)) {
+        newSet.add(value)
+      }
+    }
+    return newSet;
+  }
+
+  difference(iterable?: Iterable<T>) {
+    const newSet = new ExtendedSet(this);
+    for (let value of iterable) {
+      newSet.delete(value);
+    }
+    return newSet;
+  }
+
+  union(iterable?: Iterable<T>) {
+    const newSet = new ExtendedSet(this);
+    for (let value of iterable) {
+      newSet.add(value);
+    }
+    return newSet;
+  }
+
+  getFistValue() {
+    return this.values().next().value as T;
+  }
+
+}
