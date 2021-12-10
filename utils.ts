@@ -44,6 +44,13 @@ export function toCountMap<T>(values: T[]): Map<T, number> {
   return map;
 }
 
+export function median(values: number[]) {
+  if (values.length % 2 === 0) {
+    return (values[values.length / 2 - 1] + values[values.length / 2]) / 2
+  }
+  return values[Math.floor(values.length / 2)];
+}
+
 export class ExtendedSet<T> extends Set<T> {
 
   constructor(iterable?: Iterable<T>) {
