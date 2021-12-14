@@ -51,6 +51,14 @@ export function median(values: number[]) {
   return values[Math.floor(values.length / 2)];
 }
 
+export function getRange(start: number, end: number) {
+  const numbers: number[] = [];
+  for (let i = 0; i < end; i++) {
+    numbers.push(i);
+  }
+  return numbers;
+}
+
 export class ExtendedSet<T> extends Set<T> {
 
   constructor(iterable?: Iterable<T>) {
