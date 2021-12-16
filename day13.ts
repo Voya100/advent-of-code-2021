@@ -22,7 +22,7 @@ function part2() {
     foldedCoords = foldCoords(foldedCoords, fold);
   }
   const uniqueCoords = getUniqueCoords(foldedCoords);
-  return '\n' + visalise(uniqueCoords);
+  return '\n' + visualise(uniqueCoords);
 }
 
 function stringToCoord(string: string): Coord {
@@ -55,7 +55,7 @@ function getUniqueCoords(coords: Coord[]) {
   return new Set(coords.map(({ x, y }) => `${x},${y}`));
 }
 
-function visalise(coords: Set<string>) {
+function visualise(coords: Set<string>) {
   const maxX = Math.max(...[...coords.values()].map(coord => stringToCoord(coord).x));
   const maxY = Math.max(...[...coords.values()].map(coord => stringToCoord(coord).y));
 
