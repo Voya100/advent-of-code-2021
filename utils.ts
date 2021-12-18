@@ -53,7 +53,7 @@ export function median(values: number[]) {
 
 export function getRange(start: number, end: number) {
   const numbers: number[] = [];
-  for (let i = 0; i < end; i++) {
+  for (let i = start; i < end; i++) {
     numbers.push(i);
   }
   return numbers;
